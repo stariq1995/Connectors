@@ -1,9 +1,9 @@
 {
-	"building": "Wean",
-	"client_key": "hz9VvBxAX03UxswJkR6W4T5WIxZ7JDpGDBYnjFVMSgqfsj4ccJ",
-	"client_id": "HUlkRVXWS0UbHFdzQAbxQKbYjbyeYHByhBRYAlMv",
+	"building": "CMUQ",
+	"client_key": "uMPaFZuFPqGfDRC5uVjeTgFNpBwjIopMqC1L6FZaO7k9b2am9L",
+	"client_id": "9e4VS4pFYxdIZE9WMQ620jKpN5BDulUCCLuWPZog",
 	"identifier": "randomsidentifier",
-	"email": "sud335@gmail.com",
+	"email": "summeriotsannan@gmail.com",
 	"name":"randomsource_name",
-	"url":"http://128.2.113.192:82"
+	"url":"http://localhost:82"
 }

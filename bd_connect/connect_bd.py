@@ -36,6 +36,7 @@ class BdConnect:
         self.data["mac_id"] = self.sensor_data["mac_id"]
         self.sensor_data.pop("mac_id")
         self.url = bdcredentials.setting["url"]
+        self.loginurl = 'http://localhost:81';
         self.metadata = []
         self.common_data = []
 
@@ -45,10 +46,13 @@ class BdConnect:
             Returns:
                     Oauth token of the user
         """
-        url = self.url + "/oauth/access_token/client_id=" + self.data['client_id'] + \
+        url = self.loginurl + "/oauth/access_token/client_id=" + self.data['client_id'] + \
               "/client_secret=" + self.data['client_key']
 
-        response = requests.get(url, verify=False).json()
+        print url
+        response = requests.get(url, verify=False)
+        print "response>>", response
+        response = response.json()
         self.oauth_token = response['access_token']
         self.header = {"Authorization": "bearer " + self.oauth_token, 'content-type': 'application/json'}
         return self.oauth_token
@@ -64,7 +68,10 @@ class BdConnect:
         """
         string = "mac_id=" + urllib.quote_plus(self.data["mac_id"])
         url = self.url + "/api/sensor/list?filter=metadata&" + string
-        response = requests.get(url, headers=self.header, verify=False).json()
+        # url = self.url + "/api/sensor/list"
+        response = requests.get(url, headers=self.header, verify=False)
+        print "url", url, "response>>>>", response
+        response = response.json();
         return response
 
     def check_sensor(self):
